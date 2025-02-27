@@ -1,1 +1,7 @@
-npx lint-staged
+echo 'Linting erros on staged archives...'
+npx lint-staged || 
+(echo 'Linting erros failed. Please fix before commiting.' && exit 1)
+
+echo 'Testing build application'
+npm run build || 
+(echo 'Build Failed. Please fix them before commiting' && exit 1)
